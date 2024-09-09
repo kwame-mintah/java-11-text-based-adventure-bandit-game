@@ -1,3 +1,5 @@
+package bandit;
+
 public class Player {
 
   boolean playerOwnsHorse = false;

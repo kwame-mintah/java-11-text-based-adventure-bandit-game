@@ -1,10 +1,14 @@
+package bandit;
+
+import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Town extends Player {
 
   Random rand = new Random(); // RANDOM UTIL
-  String[] towns = {"Valentine", "Rhodes", "Lagras", "Saint Denis"}; // different towns
+  String saintDenis = "Saint Denis";
+  String[] towns = {"Valentine", "Rhodes", "Lagras", saintDenis}; // different towns
   int currentTown = 0;
   boolean freshClothes = false;
   boolean haircut = false;
@@ -13,13 +17,13 @@ public class Town extends Player {
 
   public void displayOptions() {
 
-    System.out.println("\n\t----------------------------"); // Player stats
+    System.out.println("\n\t----------------------------"); // bandit.Player stats
     System.out.println("\t > You are in " + towns[currentTown]);
     System.out.println("\t > Your health is at " + health);
     System.out.println("\t > You have " + money + " gold");
     System.out.println("\t > You have " + notoriety + "% notoriety");
     System.out.println("\t > You have " + strength + " strength");
-    System.out.println("\t----------------------------"); // Player stats
+    System.out.println("\t----------------------------"); // bandit.Player stats
 
     System.out.println("\t\nWhat would you like to do?\n"); // Shops
     System.out.println("\t# 1. Browse the shop");
@@ -27,10 +31,10 @@ public class Town extends Player {
     System.out.println("\t# 3. Rob a bank");
     System.out.println("\t# 4. Rob someone");
     System.out.println("\t# 5. Browse the stables");
-    if (towns[currentTown] != ("Saint Denis")) {
+    if (!Objects.equals(towns[currentTown], saintDenis)) {
       System.out.println("\t# 6. Travel to the next town");
     }
-    if (towns[currentTown].equals("Saint Denis")) {
+    if (towns[currentTown].equals(saintDenis)) {
       System.out.println("\t# 7. Visit harbour\n");
     } else System.out.println("\n");
   }
@@ -41,16 +45,20 @@ public class Town extends Player {
 
     String input = in.nextLine(); // MAIN INPUT
 
-    if (input.equals("1")) { // Main screen input 1
+    if (input.equals("1")) { // bandit.Main screen input 1
 
       System.out.println("\t-- You enter a goods store in town. --\n");
       System.out.println("\tShopkeeper: Welcome, would you like to purchase?\n");
 
       System.out.println(
-          "\t# 1. Revolver - 20 gold\n\t# 2. Shotgun - 40 gold"
-              + "\n\t# 3. Mask - 30 gold\n\t# 4. Clothes - 20 gold"
-              + "\n\t# 5. Syringe - 15 gold\n\t# 6. Exit");
-
+          """
+              # 1. Revolver - 20 gold
+              # 2. Shotgun - 40 gold
+              # 3. Mask - 30 gold
+              # 4. Clothes - 20 gold
+              # 5. Syringe - 15 gold
+              # 6. Exit
+              """);
       String inputShop = in.nextLine(); //                    GETTING INPUT FROM THE USER
 
       if (inputShop.equals("1")) { // SHOP INPUT 1
@@ -75,16 +83,19 @@ public class Town extends Player {
 
       } else if (inputShop.equals("3")) {
 
-        if (maskBought == true) {
+        if (maskBought) {
           System.out.println("\nSorry, we are all out of masks, try the next town over.");
         } else if (money >= 30) {
 
-          if (mask == false) {
+          if (!mask) {
 
             money -= 30;
             System.out.println(
-                "\n-- You have bought a mask "
-                    + "(this will hide your identity when commiting crimes) --");
+                """
+                    -- You have bought a mask
+                    (this will hide your identity when commiting crimes)
+                    --
+                    """);
             mask = true;
             maskBought = true;
 
@@ -96,12 +107,15 @@ public class Town extends Player {
 
         if (money >= 10) {
 
-          if (freshClothes == false) {
+          if (!freshClothes) {
 
             money -= 20;
             System.out.println(
-                "\n-- You have bought a fresh set of clothes. "
-                    + "( - 20 gold & - 40% notoriety) --\n");
+                """
+                    -- You have bought a fresh set of clothes.
+                    ( - 20 gold & - 40% notoriety)
+                    --
+                    """);
             notoriety = notoriety - 40;
             freshClothes = true;
 
@@ -118,8 +132,11 @@ public class Town extends Player {
         } else if (amountOfSyringes > 0) {
 
           System.out.println(
-              "\n-- You bought then injected yourself with the dirty syringe. "
-                  + "( - 15 gold & + 10 health) --\n");
+              """
+                  -- You bought then injected yourself with the dirty syringe.
+                  ( - 15 gold & + 10 health)
+                  --
+                  """);
           amountOfSyringes = amountOfSyringes - 1;
           money = money - 15;
           health = health + 10;
@@ -140,7 +157,7 @@ public class Town extends Player {
 
           System.out.println("Barber: You do not have enough money buster.");
 
-        } else if (haircut == false) {
+        } else if (!haircut) {
 
           System.out.println("\tYou have got a hair cut ( - 30 gold & - 60% notoriety)\n");
           notoriety = notoriety - 60;
@@ -150,7 +167,7 @@ public class Town extends Player {
         } else System.out.println("\n\tYour hair is not long enough, try travelling.\n");
       }
 
-    } else if (input.equals("3")) { // Main screen input 2
+    } else if (input.equals("3")) { // bandit.Main screen input 2
 
       int outcome = rand.nextInt(10);
       int difficulty;
@@ -166,24 +183,29 @@ public class Town extends Player {
       if (outcome >= difficulty) {
 
         System.out.println(
-            "\t-- You were shot while robbing the bank! ( - 40 health) --\n"
-                + "\t-- You lie low for a while --\n");
+            """
+                You were shot while robbing the bank!
+                -- ( - 40 health) --
+                -- You lie low for a while --
+                """);
         health = health - 40;
 
       } else if (outcome < difficulty) {
 
         System.out.println(
-            "\n\t-- You robbed the bank! ( + 60 gold & + 70 notoriety) --\n"
-                + "\t-- You lie low for a while --\n");
+            """
+                -- You robbed the bank! ( + 60 gold & + 70 notoriety) --
+                -- You lie low for a while --
+                """);
         money = money + 60;
-        if (mask == false) {
+        if (!mask) {
           notoriety += 70;
         } else
           System.out.println("\n-- You did not gain notoriety as you " + "were wearing a mask --");
         mask = false;
       }
 
-    } else if (input.equals("4")) { // Main screen input 2
+    } else if (input.equals("4")) { // bandit.Main screen input 2
 
       int outcome = rand.nextInt(10);
 
@@ -196,13 +218,13 @@ public class Town extends Player {
 
         System.out.println("\n-- You robbed someone! ( + 15 gold & + 40 notoriety) --\n");
         money = money + 15;
-        if (mask == false) {
+        if (!mask) {
           notoriety += 40;
         } else System.out.println("\nYou did not gain noteriety as you were wearing a mask");
         mask = false;
       }
 
-    } else if (input.equals("5")) { // Main screen input 2
+    } else if (input.equals("5")) { // bandit.Main screen input 2
 
       System.out.println("\tStablemaster: Welcome sir would you like to buy a horse?\n");
       System.out.println("\t# 1. Purchase stallion - 50 gold\n\t# 2. Go back\n");
@@ -216,12 +238,16 @@ public class Town extends Player {
         playerOwnsHorse = true;
       }
 
-    } else if (input.equals("6") && towns[currentTown] != ("Saint Denis")) { // Main screen input 2
+    } else if (input.equals("6")
+        && !Objects.equals(towns[currentTown], saintDenis)) { // bandit.Main screen input 2
 
       if (playerOwnsHorse) {
 
         System.out.println(
-            "\n\tYou start your journey to the next town..." + "\n\tYour hair grows\n");
+            """
+                          You start your journey to the next town...
+                          Your hair grows
+                          """);
         currentTown = currentTown + 1;
         freshClothes = false;
         haircut = false;
@@ -231,7 +257,7 @@ public class Town extends Player {
         System.out.println(
             "\tYou have to own a horse to travel. " + "(go to the stables to buy one)\n");
 
-    } else if (input.equals("7") && towns[currentTown].equals("Saint Denis")) {
+    } else if (input.equals("7") && towns[currentTown].equals(saintDenis)) {
 
       System.out.println("\tSailor: Hello friend\n\n");
       System.out.println("\t# 1. Take me to Mexico (150 gold)\n\t# 2. Leave\n");

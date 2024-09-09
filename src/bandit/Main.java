@@ -1,11 +1,11 @@
+package bandit;
+
 import java.util.Scanner;
+
 
 public class Main extends Town {
 
   public static void main(String[] args) {
-
-    boolean running = true;
-
     Main x = new Main();
     Town town = new Town();
     Scanner in = new Scanner(System.in);
@@ -27,8 +27,7 @@ public class Main extends Town {
             + "\n\t\twith just 50 gold to your name you head into town...");
     System.out.println("\t =========================================================\n\n\n");
 
-    while (running) {
-
+    while (true) {
       x.pause(700);
       town.displayOptions();
       x.pause(700);
@@ -39,7 +38,8 @@ public class Main extends Town {
   public void pause(int time) {
     try {
       Thread.sleep(time);
-    } catch (InterruptedException e) {
+    } catch (InterruptedException exception) {
+      Thread.currentThread().interrupt();
     }
   }
 }
