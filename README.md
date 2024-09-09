@@ -4,7 +4,7 @@ A group project to make a game in Java, a text based adventure was chosen. A tex
 Wild West similar to that of Oregon Trail. 
 
 This group project was created originally in 2018 and was version controlled under one of my other accounts -- which has
-since been deleted. Code from the master branch has been pushed to my *main* account now and some minor tidy up performed
+since been deleted[^1]. Code from the master branch has been pushed to my *main* account now and some minor tidy up performed
 and will be archived publicly.
 
 ## Team Members
@@ -42,8 +42,11 @@ and will be archived publicly.
 
 > [!NOTE]
 > Money at the start if the game (Very basic use)
+> 
 > Score System based on the decision
+> 
 > Objects: Money, Health, Weapons, Notoriety, Inventory
+> 
 > MVP: there is one town, the player can either rob someone or rob a bank, it goes well and they gain some gold.
 
 # GUI
@@ -153,3 +156,6 @@ Outcomes
    chase you)
 3. The man beats you up, leaving you very wounded and unconscious for a day, when you wake up you are in the town
    hospital. (You lose 25G and 35HP)
+
+[^1]: GitHub has linked this old account to a new one created, however this account is much more recent and not 
+      associated with the project.
