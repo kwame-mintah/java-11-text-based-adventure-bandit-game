@@ -2,7 +2,6 @@ package bandit;
 
 import java.util.Scanner;
 
-
 public class Main extends Town {
 
   public static void main(String[] args) {
