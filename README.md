@@ -1,15 +1,17 @@
 # BANDIT TRAIL
 
-A group project to make a game in Java, a text based adventure was chosen. A text based adventure game based in the
-Wild West similar to that of Oregon Trail. 
+A group project to make a game in Java, a text based adventure was chosen. The game is based in the Wild West
+similar to that of Oregon Trail. 
 
 This group project was created originally in 2018 and was version controlled under one of my other accounts -- which has
 since been deleted[^1]. Code from the master branch has been pushed to my *main* account now and some minor tidy up performed
 and will be archived publicly.
 
+![Bandit trail example play through](./demo/bandit-trail-example-playthrough.gif)
+
 ## Team Members
 
-- [Ahmed Marzook](https://github.com/amarzook1)
+- [Ahmed Marzook](https://github.com/ahmed-marzook)
 - [Max Francis](https://github.com/MaxFrancis1)
 - [Benjamin Kearns](https://github.com/BenjaminJamesKearns)
 - [Kwame Mintah](https://github.com/kwame-mintah)
@@ -109,7 +111,7 @@ As you walk along the street you see a wealthy looking old lady and decide to ro
 Outcomes
 
 1. You have successfully robbed her (mask was used), you have gained 30G.
-2. You have successfully robbed her but she remembers your face, you have gained 30G (If the sheriff sees you, he will
+2. You have successfully robbed her, but she remembers your face, you have gained 30G (If the sheriff sees you, he will
    chase you)
 3. The old lady hits you with her bag and runs away, you are unconscious for 3 hours, you lose 10HP.
 
@@ -122,7 +124,7 @@ You have walked into the local bank, with your best weapon at your waist.
 
 Outcomes
 
-1. If you attempt to rob the bank in the same clothes that you have robbed someone in you are instantly arrested and it
+1. If you attempt to rob the bank in the same clothes that you have robbed someone in you are instantly arrested, and it
    is game over.
 2. The cashier gives you all the money in her till, and you leave quietly (You gain 45G)
    1.2. The cashier shouts gun and takes cover, an officer in the bank hears and shoots you in the arm, you run out of the
@@ -152,7 +154,7 @@ see he is much more muscular than you previously thought.
 Outcomes
 
 1. You have successfully robbed him (mask was used), you have gained 40G.
-2. You have successfully robbed him but he remembers your face, you have gained 40G (If the sheriff sees you, he will
+2. You have successfully robbed him, but he remembers your face, you have gained 40G (If the sheriff sees you, he will
    chase you)
 3. The man beats you up, leaving you very wounded and unconscious for a day, when you wake up you are in the town
    hospital. (You lose 25G and 35HP)
